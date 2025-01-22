@@ -61,17 +61,3 @@ footer {
     font-size: 1rem;
     margin: 0;
 }
-
-<<<<<<< HEAD
-=======
-footer::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 10px;
-    background: linear-gradient(to right, #bfa98a, transparent);
-    z-index: 1;
-}
->>>>>>> 89b3435bee59f0782aca3e91b0cccaa513860090
