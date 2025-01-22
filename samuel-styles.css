@@ -69,6 +69,6 @@ footer::before {
     left: 0;
     width: 100%;
     height: 10px;
-    background: linear-gradient(to right, #bfa98a, transparent); /* Luxurious gradient detail */
+    background: linear-gradient(to right, #bfa98a, transparent);
     z-index: 1;
 }
