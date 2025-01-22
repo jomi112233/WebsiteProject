@@ -76,6 +76,7 @@ body {
     bborder-bottom: 1px solid #bfa98a; 
     padding-bottom: 10px;
     text-transform: uppercase;
+    font-family: 'Georgia', serif; 
 }
 p {
     line-height: 1.6;
@@ -83,6 +84,7 @@ p {
     margin: 0;
     color: white;
     text-align: center;
+    font-family: 'Georgia', serif; 
 }
 footer {
     background-color: #202124; 
