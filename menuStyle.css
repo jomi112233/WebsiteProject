@@ -51,6 +51,7 @@ body {
     color: white;
     transition: color 0.3s ease;
     font-size: 1,2rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
  a:hover {
@@ -81,10 +82,12 @@ body {
 p {
     line-height: 1.6;
     font-size: 1rem;
-    margin: 0;
+    margin: 10px;
     color: white;
     text-align: center;
-    font-family: 'Georgia', serif; 
+    font-family: 'Georgia', serif;
+    justify-content: space-between;
+    
 }
 footer {
     background-color: #202124; 
