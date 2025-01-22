@@ -8,6 +8,11 @@ body {
 
 .navigation {
     text-align: left;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    z-index: 10;
+    gap: 20px;
 }
 .logo {
    width: 300px;
@@ -16,10 +21,7 @@ body {
 .header {
     text-align: center;
     justify-content: space-between;
-}
-h1{
-    color: aliceblue;
-    font-family: monteCarlo;
+
 }
 a {
     text-decoration: none;
@@ -35,5 +37,8 @@ a {
     text-decoration: underline; 
 
 }
+
+
+
 
 

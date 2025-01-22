@@ -25,8 +25,18 @@ body {
 }
 
 .logo {
-   width: 300px;
+   width: auto;
+   height: auto;
+   max-width: 300px;
+   
+
 }
+@media (max-width: 480px) {
+    .logo {
+        width: 120px; 
+    }
+}
+
 .header nav {
     position: absolute;
     top: 13%; 
