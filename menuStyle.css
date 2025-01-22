@@ -1,28 +1,88 @@
 body {
     margin: 0;
-    padding: 0;
+    padding: 20px;
     font-family: 'Arial', sans-serif;
     background-color: #202124;
 }
+.container {
+    display: flex;
+    flex-direction: column;
+}
 
 .header {
-    text-align: center;
-    justify-content: space-between;
+    position: relative;
+    height: 300px;
+    width: 100%; 
+    overflow: hidden; 
+    background-color: #202124; 
 }
-h1{
-    color: aliceblue;
-    font-family: monteCarlo;
-}
-a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    font-weight: 400;
-    transition: color 0.3s ease;
+.navigation {
+    text-align: left;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    z-index: 10;
 }
 
-.menu a:hover {
-    color: #ccc;
+.logo {
+   width: 300px;
+}
+.header nav {
+    position: absolute;
+    top: 13%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    z-index: 10; 
+}
+
+.header nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px; 
+    justify-content: center; 
+    align-items: center; 
+    margin: 0; 
+    padding: 0; 
+}
+
+.header a {
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease;
+    font-size: 1,2rem;
+}
+
+ a:hover {
+    color: #bfa98a;
+    text-decoration: underline;
+ }
+
+.header .header-image {
+    position: absolute;
+    top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; 
+        z-index: 1; 
+}
+.body h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #bfa98a; 
+    bborder-bottom: 1px solid #bfa98a; 
+    padding-bottom: 10px;
+    text-transform: uppercase;
+}
+p {
+    line-height: 1.6;
+    font-size: 1rem;
+    margin: 0;
+    color: white;
+    text-align: center;
 }
 footer {
     background-color: #202124; 
