@@ -73,6 +73,25 @@ a {
     text-decoration: underline; 
 
 }
+.photo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.photo-grid img {
+    width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.photo-grid .text {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+}
 
 
 
