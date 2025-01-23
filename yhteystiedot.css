@@ -1,0 +1,32 @@
+.yhteystiedot {
+    padding: 40px 20px; 
+    font-family: 'Georgia', serif; 
+    color: #f5f5f5; 
+    text-align: center; 
+    font-size: large;
+}
+
+.yht-container {
+    background-color: #202124;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap; 
+    align-items: flex-start; 
+}
+.yht-section {
+    flex: 1;
+    min-width: 300px;
+    padding: 30px;
+}
+.yht-section h2 {
+    margin-bottom: 15px;
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #bfa98a; 
+    border-bottom: 1px solid #bfa98a; 
+    padding-bottom: 10px;
+    text-transform: uppercase; 
+}
