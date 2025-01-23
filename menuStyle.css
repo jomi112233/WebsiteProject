@@ -4,6 +4,7 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: #202124;
 }
+
 .container {
     display: flex;
     flex-direction: column;
@@ -12,10 +13,11 @@ body {
 .header {
     position: relative;
     height: 300px;
-    width: 100%; 
-    overflow: hidden; 
-    bbackground-color: #202124; 
+    width: 100%;
+    overflow: hidden;
+    background-color: #202124;
 }
+
 .navigation {
     text-align: left;
     position: absolute;
@@ -25,34 +27,33 @@ body {
 }
 
 .logo {
-   width: auto;
-   height: auto;
-   max-width: 300px;
-   
-
+    width: auto;
+    height: auto;
+    max-width: 300px;
 }
+
 @media (max-width: 480px) {
     .logo {
-        width: 120px; 
+        width: 120px;
     }
 }
 
 .header nav {
     position: absolute;
-    top: 13%; 
-    left: 50%; 
-    transform: translate(-50%, -50%); 
-    z-index: 10; 
+    top: 13%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
 }
 
 .header nav ul {
     display: flex;
     list-style: none;
-    gap: 20px; 
-    justify-content: center; 
-    align-items: center; 
-    margin: 0; 
-    padding: 0; 
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
 .header a {
@@ -60,14 +61,14 @@ body {
     text-decoration: none;
     color: white;
     transition: color 0.3s ease;
-    font-size: 1,2rem;
+    font-size: 1.2rem;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
- a:hover {
+a:hover {
     color: #bfa98a;
     text-decoration: underline;
- }
+}
 
 .header .header-image {
     position: absolute;
