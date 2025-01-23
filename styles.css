@@ -1,27 +1,63 @@
-
 body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background: url('kuvat/vegekuva.jpg');
+    background-color:#202124; ;
 }
 
 .navigation {
-    text-align: left;
     position: absolute;
-    top: 10px;
-    left: 20px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
     z-index: 10;
+}
+
+.logo {
+    width: 300px;
+    height: auto;
+}
+
+nav {
+    flex: 1;
+    display: flex; 
+    justify-content: center; 
+}
+
+nav ul {
+    display: flex;
+    list-style: none; 
+    margin: 0;
+    padding: 0;
     gap: 20px;
 }
-.logo {
-   width: 300px;
+
+nav ul li a {
+    text-decoration: none; 
+    font-size: 1rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    transition: color 0.3s ease;
 }
 
-.header {
-    text-align: center;
-    justify-content: space-between;
+nav ul li a:hover {
+    color: #bfa98a;
+    text-decoration: underline; 
+}
 
+.hero {
+    background: url('kuvat/vegekuva.jpg') no-repeat center center;
+    background-size: cover; 
+    height: 100vh; 
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white; 
+    text-align: center;
 }
 a {
     text-decoration: none;
@@ -37,7 +73,6 @@ a {
     text-decoration: underline; 
 
 }
-
 
 
 
