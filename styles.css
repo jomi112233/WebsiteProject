@@ -63,6 +63,7 @@ nav ul li a:hover {
     align-items: center;
     color: white; 
     text-align: center;
+    position: relative;
 }
 a {
     text-decoration: none;
@@ -77,6 +78,19 @@ a {
     color: #bfa98a;
     text-decoration: underline; 
 
+}
+.hero .bookLinkki{
+    position: absolute;
+    top: 90%; 
+    left: 80%;
+    right: 10%;
+    transform: translate(-30%, -10%);
+    padding: 15px 30px;
+    font-weight: bold;
+    border: 2px solid white;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: all 0.3s ease;
 }
 .photo-grid {
     flex:1;
