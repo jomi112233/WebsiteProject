@@ -32,11 +32,6 @@ body {
     max-width: 300px;
 }
 
-@media (max-width: 480px) {
-    .logo {
-        width: 120px;
-    }
-}
 
 .header nav {
     position: absolute;
