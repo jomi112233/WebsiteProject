@@ -54,16 +54,16 @@ nav ul li a:hover {
 }
 
 .hero {
-    background: url('kuvat/vegekuva.jpg') no-repeat center center;
+    background: url('kuvat/simmered-pumpkin-with-japanese-broth-minced-meat-sauce_155003-11533.jpg') no-repeat center center;
     background-size: cover; 
-    height: 100vh; 
+    height: 100vh; /* Full screen height */
     display: flex; 
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: white; 
     text-align: center;
-    position: relative;
+    position: relative
 }
 a {
     text-decoration: none;
@@ -79,18 +79,19 @@ a {
     text-decoration: underline; 
 
 }
-.hero .bookLinkki{
+.bookLinkki{
     position: absolute;
-    top: 90%; 
-    left: 80%;
-    right: 10%;
-    transform: translate(-30%, -10%);
+    top: 85%; /* Push the link lower within the hero */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center alignment */
     padding: 15px 30px;
     font-weight: bold;
     border: 2px solid white;
     border-radius: 5px;
     font-size: 18px;
-    transition: all 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.5); /* Optional: For better visibility */
+    color: white;
+    text-decoration: none;
 }
 .photo-grid {
     flex:1;
