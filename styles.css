@@ -53,17 +53,18 @@ nav ul li a:hover {
     text-decoration: underline; 
 }
 
+
 .hero {
     background: url('kuvat/simmered-pumpkin-with-japanese-broth-minced-meat-sauce_155003-11533.jpg') no-repeat center center;
     background-size: cover; 
     height: 100vh; 
     display: flex; 
     flex-direction: column;
-    justify-content: center;
+    justify-content:end;/* center */
     align-items: center;
     color: white; 
     text-align: center;
-    position: relative
+    position: relative;
 }
 a {
     text-decoration: none;
@@ -79,19 +80,30 @@ a {
     text-decoration: underline; 
 
 }
-.bookLinkki{
-    position: absolute;
-    top: 85%; 
-    left: 50%; 
-    transform: translate(-50%, -50%); 
+.flag-link {
+    position: absolute; 
+    right: 20px; 
+    top: 50%; 
+    transform: translateY(-50%);
+}
+
+.flag-icon {
+    width: 30px; 
+    height: auto; 
+    display: block;
+}
+
+.BookLinkki {
+    position: absolute; 
+    bottom: 10%; 
+    transform: translateY(-5px); 
     padding: 15px 30px;
-    font-weight: bold;
+    font-weight: normal;
     border: 2px solid white;
     border-radius: 5px;
     font-size: 18px;
     background-color: rgba(0, 0, 0, 0.5); 
     color: white;
-    text-decoration: none;
 }
 .photo-grid {
     display: flex;
@@ -144,7 +156,8 @@ body {
     height: 300px;
     width: 100%; 
     overflow: hidden; 
-    bbackground-color: #202124; 
+    bbackground-color: #202124;
+
 }
 .navigation {
     text-align: left;
