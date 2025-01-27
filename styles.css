@@ -90,15 +90,10 @@ a {
 .flag-link {
     position: absolute; 
     right: 20px; 
-    top: 3%; 
+    top: 8%; 
     transform: translateY(-50%);
 }
 
-.flag-icon {
-    width: 30px; 
-    height: auto; 
-    display: block;
-}
 
 .BookLinkki {
     position: absolute; 
