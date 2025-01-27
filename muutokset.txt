@@ -1,1 +1,4 @@
 kaikki navigation hommat on styling.css sisällä
+
+
+muista lisätä .hero kaikkiin osiin
