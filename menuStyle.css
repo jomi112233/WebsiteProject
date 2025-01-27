@@ -2,6 +2,18 @@
 
 /*Styling*/
 
+
+
+.header .header-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    display: block; 
+}
 .hero {
     background: url('kuvat/greippikuvajpg.jpg') no-repeat center center;
     background-size: cover; 
@@ -13,6 +25,7 @@
     color: white; 
     text-align: center;
     position: relative;
+
 }
 
 
