@@ -5,7 +5,7 @@
 .hero {
     background: url('kuvat/greippikuvajpg.jpg') no-repeat center center;
     background-size: cover; 
-    height: 100vh; 
+    height: 60vh; 
     display: flex; 
     flex-direction: column;
     justify-content:end;/* keskitys */
@@ -16,7 +16,18 @@
 }
 
 
-
+.jotai {
+    position:static;
+    bottom: 10%; 
+    transform: translateY(-5px); 
+    padding: 15px 30px;
+    font-weight: normal;
+    bborder: 2px solid pink;
+    border-radius: 5px;
+    font-size: 18px;
+    background-color: rgba(0, 0, 0, 0.5); 
+    color: white;
+}
 
 .body h2 {
     text-align: center;

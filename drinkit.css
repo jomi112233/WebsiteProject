@@ -1,12 +1,16 @@
-/*Styling*/
+.hero {
+    background: url('kuvat/drink.jpg') no-repeat center center;
+    background-size: cover; 
+    height: 60vh; 
+    display: flex; 
+    flex-direction: column;
+    justify-content:end;/* keskitys */
+    align-items: center;
+    color: white; 
+    text-align: center;
+    position: relative;
+}
 
-
-/*Styling*/
-
-
-/*problem*/
-
-/*problem*/
 
 main h2 {
     text-align: center;
