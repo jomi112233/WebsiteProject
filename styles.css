@@ -190,7 +190,7 @@ body {
 }
 .navigation {
     text-align: left;
-    position: absolute;
+    position: fixed;
     top: 10px;
     left: 20px;
     z-index: 10;
