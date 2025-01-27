@@ -1,4 +1,4 @@
-/*Navigation styling*/
+/* Index styling*/
 
 body {
     display: flex;
@@ -124,7 +124,84 @@ a {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin: 20px 0; 
 }
+/* Index styling*/
 
+/*Muu navigation styling*/
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #202124;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    position: relative;
+    height: 300px;
+    width: 100%; 
+    overflow: hidden; 
+    bbackground-color: #202124; 
+}
+.navigation {
+    text-align: left;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    z-index: 10;
+}
+
+.logo {
+   width: auto;
+   height: auto;
+   max-width: 300px;
+   
+
+}
+@media (max-width: 480px) {
+    .logo {
+        width: 120px; 
+    }
+}
+
+.header nav {
+    position: absolute;
+    top: 13%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    z-index: 10; 
+}
+
+.header nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px; 
+    justify-content: center; 
+    align-items: center; 
+    margin: 0; 
+    padding: 0; 
+}
+
+.header a {
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease;
+    font-size: 1,2rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+ a:hover {
+    color: #bfa98a;
+    text-decoration: underline;
+ }
+
+
+
+/*Muu navigation styling*/
 
 
 /*footer styling*/
@@ -193,3 +270,5 @@ footer {
     font-size: 1rem;
     margin: 0;
 }
+
+/*footer styling*/
