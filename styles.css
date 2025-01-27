@@ -190,10 +190,11 @@ body {
 }
 .navigation {
     text-align: left;
-    position: fixed;
+    position: absolute;
     top: 10px;
     left: 20px;
     z-index: 10;
+    transition: 0.3s;
 }
 
 .logo {
