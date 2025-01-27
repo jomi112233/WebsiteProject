@@ -14,6 +14,22 @@
     z-index: 1;
     display: block; 
 }
+.hero {
+    background: url('kuvat/greippikuvajpg.jpg') no-repeat center center;
+    background-size: cover; 
+    height: 100vh; 
+    display: flex; 
+    flex-direction: column;
+    justify-content:end;/* keskitys */
+    align-items: center;
+    color: white; 
+    text-align: center;
+    position: relative;
+
+}
+
+
+
 
 .body h2 {
     text-align: center;
