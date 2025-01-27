@@ -90,7 +90,7 @@ a {
 .flag-link {
     position: absolute; 
     right: 20px; 
-    top: 50%; 
+    top: 3%; 
     transform: translateY(-50%);
 }
 
