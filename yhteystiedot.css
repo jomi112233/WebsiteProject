@@ -4,7 +4,7 @@
 /*styling*/
 
 .hero {
-    background: url('kuvat/healthyFood.jpg') no-repeat center center;
+    background: url('kuvat/hienokattaus.avif') no-repeat center center;
     background-size: cover; 
     height: 60vh; 
     display: flex; 
