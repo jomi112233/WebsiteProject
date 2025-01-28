@@ -1,3 +1,81 @@
+.hero {
+   background: url('kuvat/photo1.avif') no-repeat center center;
+   background-size: cover; 
+   height: 60vh; 
+   display: flex; 
+   flex-direction: column;
+   justify-content:end;/* keskitys */
+   align-items: center;
+   color: white; 
+   text-align: center;
+   position: relative;
+
+}
+
+
 .kalenteri {
-   color: aliceblue; 
+   font-family: 'Georgia', serif;
+   text-align: center;
+   background-color: #202124;
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin: 0;
+}
+
+
+.kalenteri {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.paiva {
+   width: 35%;
+   background-color: #202124;
+   padding: 20px;
+   border-radius: 10px;
+   box-shadow: rgba(0, 0, 0, 10);
+}
+
+h3 {
+   margin-bottom: 15px;
+   font-size: 1.75rem;
+   font-weight: bold;
+   color: #bfa98a; 
+   border-bottom: 1px solid #bfa98a; 
+   padding-bottom: 10px;
+   text-transform: uppercase;
+}
+
+.aikavali button {
+   width: 100%;
+   padding: 10px;
+   border: 2px solid #333;
+   background: white;
+   cursor: pointer;
+   border-radius: 5px;
+   font-size: 1em;
+   font-weight: bold;
+   transition: 0.3s;
+}
+
+.aikavali p {
+   color: white;
+}
+.paiva img {
+   width: 500px;
+}
+.aikavali button:hover {
+   border-color: #bfa98a;
+   background: #333;
+   color: #bfa98a;
+}
+
+@media (max-width: 600px) {
+   .kalenteri {
+      flex-direction: column;
+      align-items: center;
+   }
 }

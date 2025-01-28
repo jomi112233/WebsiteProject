@@ -138,14 +138,14 @@ a {
 }
 /* Index styling*/
 
-/*Muu navigation styling*/
 
+/*Muu navigation styling*/
 @media (max-width: 768px) {
     .navigation {
         justify-content: flex-end;
     }
 nav ul {
-    display: none; /* Hide the regular navigation links */
+    display: none;
     }
 }
 
@@ -234,8 +234,6 @@ body {
     color: #bfa98a;
     text-decoration: underline;
  }
-
-
 
 /*Muu navigation styling*/
 
