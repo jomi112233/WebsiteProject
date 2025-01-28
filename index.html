@@ -4,13 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Le Boeuf Chaud</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles.css">
+
 
 
 
 </head>
 <body>
     <div class="container">
+
+        <div class="mobile-nav">
+            <a href="index.html"><img src="kuvat/logo-no-background.png" alt="" class="active"></a>
+
+
+            <div id="linkit">
+                <a href="menu.html">Menu</a>
+                <a href="drinkit.html">Drinks</a>
+                <a href="yhteystiedot.html">Contacts</a>
+                <a href="booking.html">Booking</a>
+                <a href="svenska.html">På Svenska</a>
+            </div>
+
+            <a href="javascript:void(0);" class="burgeri" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+
+
         <header class="hero">
             <a href="booking.html" class="BookLinkki">Book a Table</a>
 
@@ -24,7 +45,7 @@
                         <li><a href="yhteystiedot.html">Contacts</a></li>
                         <li><a href="booking.html">Booking</a></li>
                     
-                        <li><a href="svenska.html" class="language">På svenska</a></li>
+                        <li><a href="svenska.html" class="language">På Svenska</a></li>
                     </ul>
                 </nav>
             </div>
@@ -42,29 +63,34 @@
             </div>
         </div>
 
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-section">
-                <h3>About Us</h3>
-                <p>
-                    Cozy french restaurant <br>
-                    Mannerheimintie 59, Helsinki<br>
-                </p>
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>
+                        Cozy french restaurant <br>
+                        Mannerheimintie 59, Helsinki<br>
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="yhteystiedot.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: leboeufchaud@gmail.com</p>
+                    <p>Phone: +358 01 800 033</p>
+                </div>
             </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="menu.html">Menu</a></li>
-                    <li><a href="yhteystiedot.html">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p>Email: leboeufchaud@gmail.com</p>
-                <p>Phone: +358 01 800 033</p>
-            </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
+
+
+    
+<script src="burgeri.js"></script>
 </body>
 </html>
