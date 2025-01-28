@@ -85,8 +85,8 @@ a {
  a:hover {
     color: #bfa98a;
     text-decoration: underline; 
+ }
 
-}
 .language {
     position: absolute;
     right: 100px;
