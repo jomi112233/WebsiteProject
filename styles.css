@@ -251,7 +251,7 @@ body {
 }   /* 480*/
 @media (max-width: 600px) {
     .logo {
-        width: 120px; 
+        display: none; 
     }
 }
 
