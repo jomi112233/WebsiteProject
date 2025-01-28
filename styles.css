@@ -87,11 +87,9 @@ a {
     text-decoration: underline; 
 
 }
-.flag-link {
-    position: absolute; 
-    right: 20px; 
-    top: 8%; 
-    transform: translateY(-50%);
+.language {
+    position: absolute;
+    right: 100px;
 }
 
 
