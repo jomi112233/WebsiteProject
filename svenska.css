@@ -1,25 +1,14 @@
 
-.navigation {
-    display: flex;
-    justify-content: space-between;
+.hero {
+    background: url('kuvat/plate-with-fresh-salad-wooden-barrel_1304-4661.jpg') no-repeat center center;
+    background-size: cover; 
+    height: 60vh; 
+    display: flex; 
+    flex-direction: column;
+    justify-content:end;
     align-items: center;
-    padding: 0.5rem 1rem;
-}
-
-.logo {
-    max-height: 50px;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1rem;
-    margin: 0;
-    padding: 0;
-}
-
-nav a {
-    text-decoration: none;
-    color: #000;
-    font-weight: bold;
-}
+    color: white; 
+    text-align: center;
+    position: relative;
+ 
+ }
