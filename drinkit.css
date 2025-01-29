@@ -13,12 +13,12 @@
 }
 
 .price {
-    font-weight: bold;       /* Make it bold */
-    color: #d1cdc8;         /* Use a standout color */
-    font-size: 1.1rem;      /* Slightly larger font size */
-    background-color: #4d4c4c; /* Add a subtle background */
-    padding: 1px 3px;       /* Add padding around the text */
-    border-radius: 4px;     /* Rounded corners for better design */
+    font-weight: bold;   
+    color: #d1cdc8;       
+    font-size: 1.1rem;  
+    background-color: #4d4c4c; 
+    padding: 1px 3px;     
+    border-radius: 4px;   
 }
 
 main h2 {
@@ -40,7 +40,7 @@ p {
     color: white;
     text-align: center;
     font-family: 'Georgia', serif;
-    margin-bottom: 40px; /* Add space between paragraphs */
+    margin-bottom: 40px;
     }
     
 
