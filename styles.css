@@ -188,6 +188,19 @@ a {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin: 20px 0; 
 }
+.large-photo-container {
+    width: 800px; /* Adjust this value to make the photo larger/smaller */
+    margin: 50px auto; /* Centers the photo and adds space above/below */
+    padding: 0 20px; /* Adds some space on the sides */
+}
+
+.large-photo-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px; /* Matches your other photos' style */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Matches your other photos' shadow */
+}
 /* Index styling*/
 
 
