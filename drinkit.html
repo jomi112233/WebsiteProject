@@ -9,12 +9,13 @@
     <title>Drinks Menu</title>
 </head>
 <body>
-    <div class="container">¨
+    <div class="container">
 
+        <!-- Mobile Navigation -->
         <div class="mobile-nav">
-            <a href="index.html"><img src="kuvat/logo-no-background.png" alt="" class="active"></a>
-
-
+            <a href="index.html">
+                <img src="kuvat/logo-no-background.png" alt="Logo" class="active">
+            </a>
             <div id="linkit">
                 <a href="menu.html">Menu</a>
                 <a href="drinkit.html">Drinks</a>
@@ -22,60 +23,102 @@
                 <a href="booking.html">Booking</a>
                 <a href="svenska.html">På Svenska</a>
             </div>
-
             <a href="javascript:void(0);" class="burgeri" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
             </a>
         </div>
 
-        <div class="container">
+        <!-- Hero Section -->
+        <header class="hero">
+            <div class="navigation">
+                <a href="index.html">
+                    <img src="kuvat/logo-no-background.png" alt="Logo" class="logo">
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="drinkit.html">Drinks</a></li>
+                        <li><a href="yhteystiedot.html">Contacts</a></li>
+                        <li><a href="booking.html">Booking</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
 
-            <header class="hero">
-                <div class="navigation">
-                    <a href="index.html"><img src="kuvat/logo-no-background.png" alt="" class="logo"></a>
-                    <nav>
-                        <ul>
-                            <li><a href="menu.html">Menu</a></li>
-                            <li><a href="drinkit.html">Drinks</a></li>
-                            <li><a href="yhteystiedot.html">Contacts</a></li>
-                            <li><a href="booking.html">Booking</a></li>
-                        </ul>
-                    </nav>
-                </div>
-    
-            </header> <!--Header loppuu tähän-->
-        
+        <!-- Main Content -->
         <main>
             <h2>Drinks Menu</h2>
-            <p style="font-style: italic;">Explore our exquisite selection of drinks.</p>
-
+            <p class="italic">Explore our exquisite selection of drinks.</p>
+        
             <h2>Cocktails</h2>
-            <p>Margarita - A refreshing mix of tequila, lime, and triple sec.</p>
-            <p>Mojito - Mint, lime, sugar, rum, and soda water.</p>
-            <p>Espresso Martini - Vodka, espresso, coffee liqueur, and sugar syrup.</p>
-
+            <p>
+                <strong>Margarita</strong> 15,00 €<br>
+                4 cl Tequila<br>
+                Lime, Triple Sec<br>
+            </p> 
+            <p>
+                <strong>Mojito</strong> 13,00 €<br>
+                Mint, Lime, Sugar, Rum<br>
+                Soda Water<br>
+            </p> 
+            <p>
+                <strong>Espresso Martini</strong> 16,00 €<br>
+                4 cl Vodka<br>
+                Espresso, Coffee Liqueur, Sugar Syrup<br>
+            </p>
+        
             <h2>Wines</h2>
-            <p>Red: Cabernet Sauvignon, Merlot, Pinot Noir.</p>
-            <p>White: Chardonnay, Sauvignon Blanc, Riesling.</p>
-            <p>Rosé: Provence-style dry rosé wines.</p>
-
+            <p>
+                <strong>Red: Cabernet Sauvignon, Merlot, Pinot Noir</strong><br>
+                20,00 € / 12cl&nbsp;&nbsp;25,00 € / 16cl
+            </p>
+            <p>
+                <strong>White: Chardonnay, Sauvignon Blanc, Riesling</strong><br>
+                18,00 € / 12cl&nbsp;&nbsp;21,00 € / 16cl
+            </p>
+            <p>
+                <strong>Rosé: Provence-style dry rosé wines</strong><br>
+                17,00 € / 12cl&nbsp;&nbsp;18,00 € / 16cl
+            </p>
+        
             <h2>Beers</h2>
-            <p>Craft Lager - Crisp and refreshing.</p>
-            <p>IPA - Hoppy and flavorful.</p>
-            <p>Stout - Rich and creamy.</p>
-
+            <p>
+                <strong>Craft Lager</strong> 8,00 €<br>
+                Crisp and Refreshing
+            </p>
+            <p>
+                <strong>IPA</strong> 10,00 €<br>
+                Hoppy and Flavorful
+            </p>
+            <p>
+                <strong>Stout</strong> 12,00 €<br>
+                Rich and Creamy
+            </p>
+        
             <h2>Non-Alcoholic</h2>
-            <p>Homemade Lemonade - Fresh and tangy.</p>
-            <p>Virgin Mojito - Mint, lime, sugar, and soda water.</p>
-            <p>Soft Drinks - Coca-Cola, Sprite, Fanta.</p>
+            <p>
+                <strong>Homemade Lemonade</strong> 7,00 €<br>
+                Fresh and Tangy
+            </p>
+            <p>
+                <strong>Virgin Mojito</strong> 8,00 €<br>
+                Mint, Lime, Sugar, Soda Water
+            </p>
+            <p>
+                <strong>Soft Drinks</strong> 5,00 €<br>
+                Coca-Cola, Sprite, Fanta
+            </p>
+            <div style="height: 50px;"></div>
         </main>
+        
 
+        <!-- Footer Section -->
         <footer class="footer">
             <div class="footer-container">
                 <div class="footer-section">
                     <h3>About Us</h3>
-                    <p>Cozy french restaurant</p>
-                    <p> Mannerheimintie 59 Helsinki</p>
+                    <p>Cozy French restaurant</p>
+                    <p>Mannerheimintie 59, Helsinki</p>
                 </div>
                 <div class="footer-section">
                     <h3>Quick Links</h3>
@@ -94,6 +137,6 @@
         </footer>
     </div>
 
-    <script src="burgeri.js"></script>
+    <script src="burgeri.js" defer></script>
 </body>
 </html>

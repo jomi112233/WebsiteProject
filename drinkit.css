@@ -1,16 +1,25 @@
 .hero {
     background: url('kuvat/drink.jpg') no-repeat center center;
-    background-size: cover; 
-    height: 60vh; 
-    display: flex; 
+    background-size: cover;
+    height: 60vh;
+    display: flex;
     flex-direction: column;
-    justify-content:end;/* keskitys */
+    justify-content: flex-end; 
     align-items: center;
-    color: white; 
+    color: white;
     text-align: center;
     position: relative;
+    margin: 0; 
 }
 
+.price {
+    font-weight: bold;       /* Make it bold */
+    color: #d1cdc8;         /* Use a standout color */
+    font-size: 1.1rem;      /* Slightly larger font size */
+    background-color: #4d4c4c; /* Add a subtle background */
+    padding: 1px 3px;       /* Add padding around the text */
+    border-radius: 4px;     /* Rounded corners for better design */
+}
 
 main h2 {
     text-align: center;
@@ -31,5 +40,7 @@ p {
     color: white;
     text-align: center;
     font-family: 'Georgia', serif;
-}
+    margin-bottom: 40px; /* Add space between paragraphs */
+    }
+    
 
