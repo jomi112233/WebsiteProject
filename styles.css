@@ -122,6 +122,20 @@ nav ul li a:hover {
     position: relative;
     margin: 0;
 }
+.hero2 {
+    background: url('kuvat/bread-1750987_1280.jpg') no-repeat center center;
+    background-size: cover; 
+    height: 100vh;
+    width:100%; 
+    display: flex; 
+    flex-direction: column;
+    justify-content:end;/* keskitys */
+    align-items: center;
+    color: white; 
+    text-align: center;
+    position: relative;
+    margin: 0;
+}
 
 a {
     text-decoration: none;
