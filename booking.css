@@ -1,5 +1,5 @@
 .hero {
-   background: url('kuvat/photo1.avif') no-repeat center center;
+   background: url('kuvat/drink2.jpg') no-repeat center center;
    background-size: cover; 
    height: 60vh; 
    display: flex; 
@@ -53,7 +53,7 @@ h3 {
    width: 100%;
    padding: 10px;
    border: 2px solid #333;
-   background: white;
+   background: rgb(221, 220, 220);
    cursor: pointer;
    border-radius: 5px;
    font-size: 1em;
