@@ -1,14 +1,62 @@
-
 .hero {
-    background: url('kuvat/rafla.jpg') no-repeat center center;
+    background: url('kuvat/ruokaetusivulle.avif') no-repeat center center;
     background-size: cover; 
     height: 60vh; 
     display: flex; 
     flex-direction: column;
-    justify-content:end;
+    justify-content: end;
     align-items: center;
     color: white; 
     text-align: center;
     position: relative;
- 
- }
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    align-items: center; 
+    gap: 20px; 
+    padding: 20px;
+}
+
+.text-container {
+    text-align: left; 
+    padding: 20px;
+}
+
+.image-container {
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center; 
+    padding: 20px;
+}
+
+.image-container img {
+    max-width: 100%; 
+    height: auto; 
+    border-radius: 5px; 
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #fcf9f6;
+    font-family: 'Georgia', serif;
+}
+
+h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #bfa98a;
+    font-family: 'Georgia', serif;
+}
+
+p {
+    line-height: 1.6;
+    font-size: 1rem;
+    color: white;
+    text-align: left;
+    font-family: 'Georgia', serif;
+}
