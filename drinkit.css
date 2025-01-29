@@ -18,7 +18,7 @@ main h2 {
     font-size: 1.75rem;
     font-weight: bold;
     color: #bfa98a;
-    border-bottom: none; /* Removed underline */
+    border-bottom: none;
     padding-bottom: 10px;
     text-transform: uppercase;
     font-family: 'Georgia', serif;

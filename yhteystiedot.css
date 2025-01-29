@@ -9,7 +9,7 @@
     height: 60vh; 
     display: flex; 
     flex-direction: column;
-    justify-content:end;/* keskitys */
+    justify-content:end;
     align-items: center;
     color: white; 
     text-align: center;

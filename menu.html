@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="menuStyle.css">
 
@@ -11,8 +12,24 @@
 <body>
     <div class="container">
 
-        <header class="hero">
+        <div class="mobile-nav">
+            <a href="index.html"><img src="kuvat/logo-no-background.png" alt="" class="active"></a>
 
+
+            <div id="linkit">
+                <a href="menu.html">Menu</a>
+                <a href="drinkit.html">Drinks</a>
+                <a href="yhteystiedot.html">Contacts</a>
+                <a href="booking.html">Booking</a>
+                <a href="svenska.html">På Svenska</a>
+            </div>
+
+            <a href="javascript:void(0);" class="burgeri" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+
+        <header class="hero">
             <div class="navigation">
                 <a href="index.html"><img src="kuvat/logo-no-background.png" alt="" class="logo"></a>
                 <nav>
@@ -105,5 +122,7 @@
       
    
     </div> <!--conteiner loppu-->
+
+    <script src="burgeri.js"></script>
 </body>
 </html>
