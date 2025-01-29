@@ -135,6 +135,7 @@ nav ul li a:hover {
     text-align: center;
     position: relative;
     margin: 0;
+    padding-top: 100px;
 }
 
 a {
