@@ -186,12 +186,12 @@ a {
     height: auto; 
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 20px 0; 
+    margin: 0 20px; 
 }
 .large-photo-container {
     width: 800px; /* Adjust this value to make the photo larger/smaller */
     margin: 50px auto; /* Centers the photo and adds space above/below */
-    padding: 0 20px; /* Adds some space on the sides */
+    padding: 0px 20px; /* Adds some space on the sides */
 }
 
 .large-photo-container img {
