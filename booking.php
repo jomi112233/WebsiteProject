@@ -47,44 +47,80 @@
 
         <h2>Fill in!</h2>
 <form action="" method="post">
-    laji:<input type="text" name="laji" value=""><br>
-    paino:<input type="text" name="paino" value=""><br>
+    Sukunimi: <input type="text" name="sukunimi" value=""><br>
+    Etunimi: <input type="text" name="etunimi" value=""><br>
+    Sähköposti: <input type="email" name="sahkoposti" value=""><br>
+    Puhelinnumero: <input type="tel" name="puhnumero" value=""><br>
+    Salasana: <input type="password" name="salasana" value=""><br>
     <input type="submit" name="ok" value="OK"><br>
 </form>
 
 <?php
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
-try {
-    // https://www.php.net/manual/en/function.mysqli-connect.php
-    $yhteys = mysqli_connect("db", "root", "password", "tkkalat");
-} catch (Exception $e) {
-    header("Location:../html/yhteysvirhe.html");
-    exit;
+$server = "db";
+$username = "root";
+$password = "password";
+$database = "websiteProject";
+
+// Establish SQL Connection
+$yhteys = mysqli_connect($server, $username, $password, $database);
+
+// Check Connection
+if (!$yhteys) {
+    die("Database Connection Failed: " . mysqli_connect_error());
 }
 
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $laji = isset($_POST["laji"]) ? trim($_POST["laji"]) : "";
-    $paino = isset($_POST["paino"]) ? (float)$_POST["paino"] : 0;
+    // Read form data
+    $sukunimi = isset($_POST["sukunimi"]) ? trim($_POST["sukunimi"]) : "";
+    $etunimi = isset($_POST["etunimi"]) ? trim($_POST["etunimi"]) : "";
+    $sahkoposti = isset($_POST["sahkoposti"]) ? trim($_POST["sahkoposti"]) : "";
+    $puhnumero = isset($_POST["puhnumero"]) ? trim($_POST["puhnumero"]) : "";
+    $salasana = isset($_POST["salasana"]) ? trim($_POST["salasana"]) : "";
 
-    if (!empty($laji) && $paino > 0) {  
-        $sql = "INSERT INTO kala (laji, paino) VALUES (?, ?)";
-        $stmt = mysqli_prepare($yhteys, $sql);
-        mysqli_stmt_bind_param($stmt, 'sd', $laji, $paino);
-        mysqli_stmt_execute($stmt);
+    if (!empty($sukunimi) && !empty($etunimi) && !empty($sahkoposti) && !empty($puhnumero) && !empty($salasana)) {
+        // Check if record already exists by phone number
+        $sql_check = "SELECT * FROM booking WHERE puhnumero = ?";
+        $stmt_check = mysqli_prepare($yhteys, $sql_check);
+        mysqli_stmt_bind_param($stmt_check, 's', $puhnumero);
+        mysqli_stmt_execute($stmt_check);
+        $result = mysqli_stmt_get_result($stmt_check);
+        
+        if (mysqli_num_rows($result) > 0) {
+            // Update existing record if phone number exists
+            $sql = "UPDATE booking SET etunimi=?, sukunimi=?, sahkoposti=?, salasana=? WHERE puhnumero=?";
+            $stmt = mysqli_prepare($yhteys, $sql);
+            mysqli_stmt_bind_param($stmt, 'sssss', $etunimi, $sukunimi, $sahkoposti, $salasana, $puhnumero);
+        } else {
+            // Insert new record if phone number doesn't exist
+            $sql = "INSERT INTO booking (etunimi, sukunimi, sahkoposti, salasana, puhnumero) VALUES (?, ?, ?, ?, ?)";
+            $stmt = mysqli_prepare($yhteys, $sql);
+            mysqli_stmt_bind_param($stmt, 'sssss', $etunimi, $sukunimi, $sahkoposti, $salasana, $puhnumero);
+        }
+
+        if (mysqli_stmt_execute($stmt)) {
+            echo "Record successfully saved.";
+        } else {
+            echo "Error: " . mysqli_error($yhteys);
+        }
+        mysqli_stmt_close($stmt);
+    } else {
+        echo "All fields are required!";
     }
 }
 
+// Fetch all records
+$tulos = mysqli_query($yhteys, "SELECT * FROM booking");
 
-$tulos = mysqli_query($yhteys, "SELECT * FROM kala");
-
-while($rivi=mysqli_fetch_object($tulos)) {
-    print"id=$rivi->id laji=$rivi->laji paino=$rivi->paino".
-"<a href='./poista.php?id=$rivi->id'>Poista</a>".
-"<a href='./muokkaakala.php?id=$rivi->id'>Muokkaa</a><br>";
+while ($rivi = mysqli_fetch_object($tulos)) {
+    echo "Sukunimi=$rivi->sukunimi Etunimi=$rivi->etunimi Sähköposti=$rivi->sahkoposti Puhelinnumero=$rivi->puhnumero " . 
+         "<a href='./poista.php?puhnumero=$rivi->puhnumero'>Poista</a> " . 
+         "<a href='./muokkaa.php?puhnumero=$rivi->puhnumero'>Muokkaa</a><br>";
 }
 
+// Close connection
+mysqli_free_result($tulos);
 mysqli_close($yhteys);
 ?>
              
