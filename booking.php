@@ -33,6 +33,7 @@
     <label>Salasana: <input type="password" name="salasana" required></label><br>
     <label>Valitse päivämäärä: <input type="date" name="pvm" required></label><br>
     <label>Valitse aika: <input type="time" name="aika" required></label><br>
+    <label>Valitse henkilömäärä: <input type="number" name="hlomaara" min="1" required><br>
     <input type="submit" name="ok" value="OK">
 </form>
 <style>
@@ -182,7 +183,7 @@
                 text-decoration: none;
             }
         </style>
-  <?php
+<?php
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 $server = "db";
 $username = "root";
@@ -201,7 +202,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $puhnumero = trim($_POST["puhnumero"]);
     $salasana = password_hash(trim($_POST["salasana"]), PASSWORD_DEFAULT);
     $pvm = $_POST["pvm"];
-    $aika = $_POST["aika"];
+    $aika =($_POST["aika"]);
+    $hlomaara = $_POST["hlomaara"];
 
     $sql_check = "SELECT * FROM booking WHERE puhnumero = ?";
     $stmt_check = mysqli_prepare($yhteys, $sql_check);
@@ -210,13 +212,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = mysqli_stmt_get_result($stmt_check);
 
     if (mysqli_num_rows($result) > 0) {
-        $sql = "UPDATE booking SET etunimi=?, sukunimi=?, sahkoposti=?, salasana=?, pvm=?, aika=? WHERE puhnumero=?";
+        $sql = "UPDATE booking SET etunimi=?, sukunimi=?, sahkoposti=?, salasana=?, pvm=?, aika=?, hlomaara=? WHERE puhnumero=?";
         $stmt = mysqli_prepare($yhteys, $sql);
-        mysqli_stmt_bind_param($stmt, 'sssssss', $etunimi, $sukunimi, $sahkoposti, $salasana, $pvm, $aika, $puhnumero);
+        mysqli_stmt_bind_param($stmt, 'ssssssis', $etunimi, $sukunimi, $sahkoposti, $salasana, $pvm, $aika, $hlomaara, $puhnumero);
     } else {
-        $sql = "INSERT INTO booking (etunimi, sukunimi, sahkoposti, salasana, puhnumero, pvm, aika) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO booking (etunimi, sukunimi, sahkoposti, salasana, puhnumero, pvm, aika, hlomaara) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = mysqli_prepare($yhteys, $sql);
-        mysqli_stmt_bind_param($stmt, 'sssssss', $etunimi, $sukunimi, $sahkoposti, $salasana, $puhnumero, $pvm, $aika);
+        mysqli_stmt_bind_param($stmt, 'ssssssis', $etunimi, $sukunimi, $sahkoposti, $salasana, $puhnumero, $pvm, $aika, $hlomaara);
     }
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
@@ -226,7 +228,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $tulos = mysqli_query($yhteys, "SELECT * FROM booking");
 
 while ($rivi = mysqli_fetch_object($tulos)) {
-    echo "Sukunimi=$rivi->sukunimi Etunimi=$rivi->etunimi Sähköposti=$rivi->sahkoposti Puhelinnumero=$rivi->puhnumero Päivämäärä=$rivi->pvm Aika=$rivi->aika " . 
+    echo "Sukunimi=$rivi->sukunimi Etunimi=$rivi->etunimi Sähköposti=$rivi->sahkoposti Puhelinnumero=$rivi->puhnumero Päivämäärä=$rivi->pvm Aika=$rivi->aika Henkilömäärä=$rivi->hlomaara " . 
          "<a href='./poista.php?puhnumero=$rivi->puhnumero'>Poista</a> " . 
          "<a href='./muokkaa.php?puhnumero=$rivi->puhnumero'>Muokkaa</a><br>";
 }
@@ -234,6 +236,7 @@ while ($rivi = mysqli_fetch_object($tulos)) {
 mysqli_free_result($tulos);
 mysqli_close($yhteys);
 ?>
+
              
 
         <footer class="footer">
