@@ -42,7 +42,11 @@
                 flex-direction: column;
                 color: white;
             }
-
+            .container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
             form label {
                 margin-bottom: 10px;
             }
