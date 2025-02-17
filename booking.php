@@ -50,6 +50,7 @@
             }
             form label {
                 margin-bottom: 10px;
+                text-align: center;
             }
             
             h4{
