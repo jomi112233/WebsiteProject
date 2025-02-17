@@ -25,14 +25,15 @@
         </header>
 
         <h2>Fill in!</h2>
-        <form action="booking.php" method="post">
-            <label>Sukunimi: <input type="text" name="sukunimi" required></label><br>
-            <label>Etunimi: <input type="text" name="etunimi" required></label><br>
-            <label>Sähköposti: <input type="email" name="sahkoposti" required></label><br>
-            <label>Puhelinnumero: <input type="tel" name="puhnumero" required></label><br>
-            <label>Salasana: <input type="password" name="salasana" required></label><br>
-            <input type="submit" name="ok" value="OK">
-        </form>
+<form action="booking.php" method="post">
+    <label>Sukunimi: <input type="text" name="sukunimi" required></label><br>
+    <label>Etunimi: <input type="text" name="etunimi" required></label><br>
+    <label>Sähköposti: <input type="email" name="sahkoposti" required></label><br>
+    <label>Puhelinnumero: <input type="tel" name="puhnumero" required></label><br>
+    <label>Salasana: <input type="password" name="salasana" required></label><br>
+    <label>Valitse päivämäärä: <input type="date" name="pvm" required></label><br>
+    <input type="submit" name="ok" value="OK">
+</form>
 <style>
 
                 .mobile-nav {
@@ -180,61 +181,56 @@
                 text-decoration: none;
             }
         </style>
-        <?php
-        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-        $server = "db";
-        $username = "root";
-        $password = "password";
-        $database = "websiteProject";
-        
-        $yhteys = mysqli_connect($server, $username, $password, $database);
-        if (!$yhteys) {
-            die("Database Connection Failed: " . mysqli_connect_error());
-        }
-        
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $sukunimi = trim($_POST["sukunimi"]);
-            $etunimi = trim($_POST["etunimi"]);
-            $sahkoposti = trim($_POST["sahkoposti"]);
-            $puhnumero = trim($_POST["puhnumero"]);
-            $salasana = password_hash(trim($_POST["salasana"]), PASSWORD_DEFAULT);
-        
-            $sql_check = "SELECT * FROM booking WHERE puhnumero = ?";
-            $stmt_check = mysqli_prepare($yhteys, $sql_check);
-            mysqli_stmt_bind_param($stmt_check, 's', $puhnumero);
-            mysqli_stmt_execute($stmt_check);
-            $result = mysqli_stmt_get_result($stmt_check);
-        
-            if (mysqli_num_rows($result) > 0) {
-                $sql = "UPDATE booking SET etunimi=?, sukunimi=?, sahkoposti=?, salasana=? WHERE puhnumero=?";
-            } else {
-                $sql = "INSERT INTO booking (etunimi, sukunimi, sahkoposti, salasana, puhnumero) VALUES (?, ?, ?, ?, ?)";
-            }
-            if (mysqli_num_rows($result) > 0) {
-                $sql = "UPDATE booking SET etunimi=?, sukunimi=?, sahkoposti=?, salasana=? WHERE puhnumero=?";
-                $stmt = mysqli_prepare($yhteys, $sql);
-                mysqli_stmt_bind_param($stmt, 'sssss', $etunimi, $sukunimi, $sahkoposti, $salasana, $puhnumero);
-            } else {
-                $sql = "INSERT INTO booking (etunimi, sukunimi, sahkoposti, salasana, puhnumero) VALUES (?, ?, ?, ?, ?)";
-                $stmt = mysqli_prepare($yhteys, $sql);
-                mysqli_stmt_bind_param($stmt, 'sssss', $etunimi, $sukunimi, $sahkoposti, $salasana, $puhnumero);
-            }
-            mysqli_stmt_execute($stmt);
-            mysqli_stmt_close($stmt);
-            echo "Booking information saved successfully!";
-        }
+   <?php
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+$server = "db";
+$username = "root";
+$password = "password";
+$database = "websiteProject";
 
-    $tulos = mysqli_query($yhteys, "SELECT * FROM booking");
+$yhteys = mysqli_connect($server, $username, $password, $database);
+if (!$yhteys) {
+    die("Database Connection Failed: " . mysqli_connect_error());
+}
 
-    while ($rivi = mysqli_fetch_object($tulos)) {
-        echo "Sukunimi=$rivi->sukunimi Etunimi=$rivi->etunimi Sähköposti=$rivi->sahkoposti Puhelinnumero=$rivi->puhnumero " . 
-             "<a href='./poista.php?puhnumero=$rivi->puhnumero'>Poista</a> " . 
-             "<a href='./muokkaa.php?puhnumero=$rivi->puhnumero'>Muokkaa</a><br>";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $sukunimi = trim($_POST["sukunimi"]);
+    $etunimi = trim($_POST["etunimi"]);
+    $sahkoposti = trim($_POST["sahkoposti"]);
+    $puhnumero = trim($_POST["puhnumero"]);
+    $salasana = password_hash(trim($_POST["salasana"]), PASSWORD_DEFAULT);
+    $pvm = $_POST["pvm"];
+
+    $sql_check = "SELECT * FROM booking WHERE puhnumero = ?";
+    $stmt_check = mysqli_prepare($yhteys, $sql_check);
+    mysqli_stmt_bind_param($stmt_check, 's', $puhnumero);
+    mysqli_stmt_execute($stmt_check);
+    $result = mysqli_stmt_get_result($stmt_check);
+
+    if (mysqli_num_rows($result) > 0) {
+        $sql = "UPDATE booking SET etunimi=?, sukunimi=?, sahkoposti=?, salasana=?, pvm=? WHERE puhnumero=?";
+        $stmt = mysqli_prepare($yhteys, $sql);
+        mysqli_stmt_bind_param($stmt, 'ssssss', $etunimi, $sukunimi, $sahkoposti, $salasana, $pvm, $puhnumero);
+    } else {
+        $sql = "INSERT INTO booking (etunimi, sukunimi, sahkoposti, salasana, puhnumero, pvm) VALUES (?, ?, ?, ?, ?, ?)";
+        $stmt = mysqli_prepare($yhteys, $sql);
+        mysqli_stmt_bind_param($stmt, 'ssssss', $etunimi, $sukunimi, $sahkoposti, $salasana, $puhnumero, $pvm);
     }
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    echo "Booking information saved successfully!";
+}
 
-    //suljetaan yhteys
-    mysqli_free_result($tulos);
-    mysqli_close($yhteys);
+$tulos = mysqli_query($yhteys, "SELECT * FROM booking");
+
+while ($rivi = mysqli_fetch_object($tulos)) {
+    echo "Sukunimi=$rivi->sukunimi Etunimi=$rivi->etunimi Sähköposti=$rivi->sahkoposti Puhelinnumero=$rivi->puhnumero Päivämäärä=$rivi->pvm " . 
+         "<a href='./poista.php?puhnumero=$rivi->puhnumero'>Poista</a> " . 
+         "<a href='./muokkaa.php?puhnumero=$rivi->puhnumero'>Muokkaa</a><br>";
+}
+
+mysqli_free_result($tulos);
+mysqli_close($yhteys);
 ?>
              
 
