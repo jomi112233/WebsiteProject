@@ -123,11 +123,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $tulos = mysqli_query($yhteys, "SELECT * FROM booking");
 
 while ($rivi = mysqli_fetch_object($tulos)) {
-<<<<<<< HEAD
     echo "<p>Sukunimi=$rivi->sukunimi Etunimi=$rivi->etunimi Sähköposti=$rivi->sahkoposti Puhelinnumero=$rivi->puhnumero Päivämäärä=$rivi->pvm </p>" . 
-=======
-    echo "Sukunimi=$rivi->sukunimi Etunimi=$rivi->etunimi Sähköposti=$rivi->sahkoposti Puhelinnumero=$rivi->puhnumero Päivämäärä=$rivi->pvm Aika=$rivi->aika " . 
->>>>>>> 78dbd0c908ede6b25593f95dbf1e764744836ca6
          "<a href='./poista.php?puhnumero=$rivi->puhnumero'>Poista</a> " . 
          "<a href='./muokkaa.php?puhnumero=$rivi->puhnumero'>Muokkaa</a><br>";
 }
