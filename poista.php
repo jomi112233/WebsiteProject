@@ -2,7 +2,6 @@
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
 try {
- //https://www.php.net/manual/en/function.mysqli-connect.php
     $yhteys = mysqli_connect("db", "root", "password", "websiteProject");
 }
 catch (Exception $e) {
