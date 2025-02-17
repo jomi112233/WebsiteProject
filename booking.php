@@ -56,6 +56,8 @@
 </form>
 
 <?php
+
+//MySql näyttää tarkat virheet
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
 $server = "db";
@@ -63,24 +65,26 @@ $username = "root";
 $password = "password";
 $database = "websiteProject";
 
-// Establish SQL Connection
+// tietokantayhteys
 $yhteys = mysqli_connect($server, $username, $password, $database);
 
-// Check Connection
+// Tarkistaa yhteyden tietokantaan, jos ei onnistu tulee virheilmoitus
 if (!$yhteys) {
     die("Database Connection Failed: " . mysqli_connect_error());
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Read form data
+    // tarkistaa onko lomake lähetetty POST metodilla
+    // Otetaan vastaan käyttäjän syöttämät tiedot
     $sukunimi = isset($_POST["sukunimi"]) ? trim($_POST["sukunimi"]) : "";
     $etunimi = isset($_POST["etunimi"]) ? trim($_POST["etunimi"]) : "";
     $sahkoposti = isset($_POST["sahkoposti"]) ? trim($_POST["sahkoposti"]) : "";
     $puhnumero = isset($_POST["puhnumero"]) ? trim($_POST["puhnumero"]) : "";
     $salasana = isset($_POST["salasana"]) ? trim($_POST["salasana"]) : "";
 
+    //Tarkistetaan että kaikki kentäöt on täytetty
     if (!empty($sukunimi) && !empty($etunimi) && !empty($sahkoposti) && !empty($puhnumero) && !empty($salasana)) {
-        // Check if record already exists by phone number
+        // Tarkistetaan löytyykö tietokannasta jo henkilö, puhelinnumeron avulla
         $sql_check = "SELECT * FROM booking WHERE puhnumero = ?";
         $stmt_check = mysqli_prepare($yhteys, $sql_check);
         mysqli_stmt_bind_param($stmt_check, 's', $puhnumero);
@@ -88,17 +92,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $result = mysqli_stmt_get_result($stmt_check);
         
         if (mysqli_num_rows($result) > 0) {
-            // Update existing record if phone number exists
+            //päivitetään jo olemassaoleva tieto jos puhelinumero löytyy
             $sql = "UPDATE booking SET etunimi=?, sukunimi=?, sahkoposti=?, salasana=? WHERE puhnumero=?";
             $stmt = mysqli_prepare($yhteys, $sql);
             mysqli_stmt_bind_param($stmt, 'sssss', $etunimi, $sukunimi, $sahkoposti, $salasana, $puhnumero);
         } else {
-            // Insert new record if phone number doesn't exist
+            // jos ei ole sillä puhelinumerolla tietoja, lisätään uude tiedot
             $sql = "INSERT INTO booking (etunimi, sukunimi, sahkoposti, salasana, puhnumero) VALUES (?, ?, ?, ?, ?)";
             $stmt = mysqli_prepare($yhteys, $sql);
             mysqli_stmt_bind_param($stmt, 'sssss', $etunimi, $sukunimi, $sahkoposti, $salasana, $puhnumero);
         }
-
+//jos tietojen tallennus onnistuu, jos ei tulee virheilmoitus
         if (mysqli_stmt_execute($stmt)) {
             echo "Record successfully saved.";
         } else {
@@ -110,7 +114,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-// Fetch all records
 $tulos = mysqli_query($yhteys, "SELECT * FROM booking");
 
 while ($rivi = mysqli_fetch_object($tulos)) {
@@ -119,7 +122,7 @@ while ($rivi = mysqli_fetch_object($tulos)) {
          "<a href='./muokkaa.php?puhnumero=$rivi->puhnumero'>Muokkaa</a><br>";
 }
 
-// Close connection
+//suljetaan yhteys
 mysqli_free_result($tulos);
 mysqli_close($yhteys);
 ?>
