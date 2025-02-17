@@ -24,7 +24,7 @@
             </div>
         </header>
 
-        <h2>Fill in!</h2>
+        <h4>Fill in!</h4>
 <form action="booking.php" method="post">
     <label>Sukunimi: <input type="text" name="sukunimi" required></label><br>
     <label>Etunimi: <input type="text" name="etunimi" required></label><br>
@@ -36,90 +36,21 @@
 </form>
 <style>
 
-                .mobile-nav {
-                    overflow: hidden;
-                    background-color: #202124;
-                    position: relative;
-                }
-
-
-
-
-                .mobile-nav #linkit {
-                    display: none;
-                }
-
-                .mobile-nav a {
-                    color: white;
-                    padding: 14px 16px;
-                    text-decoration: none;
-                    font-size: 17px;
-                    display: block;
-                }
-
-                .mobile-nav a.burgeri {
-                    background: #202124;
-                    display: block;
-                    position: absolute;
-                    right: 0;
-                    top: 0;
-                }
-
-                .mobile-nav a:hover {
-                    color: #bfa98a;
-                    text-align: center;
-                }
-
-                .active {
-                    width: 30%;
-                    margin: 0;
-                    padding: 0;
-                }
-
-            .container {
-                max-width: 800px;
-                margin: 0 auto;
-                padding: 20px;
-                background-color: #fff;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            }
-
-            .hero {
-                background-color: #333;
-                color: #fff;
-                padding: 20px;
-                text-align: center;
-            }
-
-            .navigation {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-
-            .navigation nav ul {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-                display: flex;
-            }
-
-            .navigation nav ul li {
-                margin-left: 20px;
-            }
-
-            .navigation nav ul li a {
-                color: #fff;
-                text-decoration: none;
-            }
-
             form {
                 display: flex;
                 flex-direction: column;
+                color: white;
             }
 
             form label {
                 margin-bottom: 10px;
+            }
+            
+            h4{
+                color: white;
+            }
+            p {
+                color: white;
             }
 
             form input[type="text"],
@@ -146,40 +77,6 @@
                 background-color: #555;
             }
 
-            footer {
-                background-color: #333;
-                color: #fff;
-                padding: 20px;
-                text-align: center;
-            }
-
-            .footer-container {
-                display: flex;
-                justify-content: space-between;
-            }
-
-            .footer-section {
-                flex: 1;
-                padding: 10px;
-            }
-
-            .footer-section h3 {
-                margin-top: 0;
-            }
-
-            .footer-section ul {
-                list-style: none;
-                padding: 0;
-            }
-
-            .footer-section ul li {
-                margin-bottom: 10px;
-            }
-
-            .footer-section ul li a {
-                color: #fff;
-                text-decoration: none;
-            }
         </style>
    <?php
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
@@ -218,13 +115,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    echo "Booking information saved successfully!";
+    echo "<p>Booking information saved successfully!</p>";
 }
 
 $tulos = mysqli_query($yhteys, "SELECT * FROM booking");
 
 while ($rivi = mysqli_fetch_object($tulos)) {
-    echo "Sukunimi=$rivi->sukunimi Etunimi=$rivi->etunimi Sähköposti=$rivi->sahkoposti Puhelinnumero=$rivi->puhnumero Päivämäärä=$rivi->pvm " . 
+    echo "<p>Sukunimi=$rivi->sukunimi Etunimi=$rivi->etunimi Sähköposti=$rivi->sahkoposti Puhelinnumero=$rivi->puhnumero Päivämäärä=$rivi->pvm </p>" . 
          "<a href='./poista.php?puhnumero=$rivi->puhnumero'>Poista</a> " . 
          "<a href='./muokkaa.php?puhnumero=$rivi->puhnumero'>Muokkaa</a><br>";
 }
