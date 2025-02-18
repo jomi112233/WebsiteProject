@@ -16,6 +16,7 @@
         }
         form {
             width: 300px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
         }
         form label {
             margin-bottom: 10px;
@@ -42,7 +43,7 @@
         form input[type="submit"]:hover {
             background-color: #555;
         }
-        <?php if ($_SERVER["REQUEST_METHOD"] == "POST"): ?> 
+        
         .booking-container {
             margin-top: 20px;
             width: 80%;
@@ -68,9 +69,17 @@
         .booking-entry a:hover {
             text-decoration: underline;
         }
-        <?php endif; ?>
+        h4 {
+            margin-bottom: 15px;
+        font-size: 1.75rem;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-weight: bold;
+        color: #bfa98a; 
+        border-bottom: 1px solid #bfa98a; 
+        padding-bottom: 10px;
+        text-transform: uppercase; 
+        }
     </style>
-    <!-- ^Katsoo, onko submit-nappia painettu ja jos on, niin tulostaa laatikon -->
 </head>
 <body>
     <div class="container">
