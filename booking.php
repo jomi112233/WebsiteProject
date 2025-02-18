@@ -42,7 +42,7 @@
         form input[type="submit"]:hover {
             background-color: #555;
         }
-        <?php if ($_SERVER["REQUEST_METHOD"] == "POST"): ?>
+        <?php if ($_SERVER["REQUEST_METHOD"] == "POST"): ?> 
         .booking-container {
             margin-top: 20px;
             width: 80%;
@@ -70,6 +70,7 @@
         }
         <?php endif; ?>
     </style>
+    <!-- ^Katsoo, onko submit-nappia painettu ja jos on, niin tulostaa laatikon -->
 </head>
 <body>
     <div class="container">
@@ -101,6 +102,7 @@
         </form>
 
         <?php
+        // Yhteys tietokantaan
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         $yhteys = mysqli_connect("db", "root", "password", "websiteProject");
         if (!$yhteys) {
@@ -117,6 +119,7 @@
             $aika = $_POST["aika"];
             $hlomaara = $_POST["hlomaara"];
 
+            // Tarkista, onko puhelinnumero jo olemassa (käyttää primary keynä)
             $sql_check = "SELECT * FROM booking WHERE puhnumero = ?";
             $stmt_check = mysqli_prepare($yhteys, $sql_check);
             mysqli_stmt_bind_param($stmt_check, 's', $puhnumero);
@@ -124,19 +127,22 @@
             $result = mysqli_stmt_get_result($stmt_check);
 
             if (mysqli_num_rows($result) > 0) {
-                $sql = "UPDATE booking SET etunimi=?, sukunimi=?, sahkoposti=?, salasana=?, pvm=?, aika=?, hlomaara=? WHERE puhnumero=?";
-                $stmt = mysqli_prepare($yhteys, $sql);
-                mysqli_stmt_bind_param($stmt, 'sssssssi', $etunimi, $sukunimi, $sahkoposti, $salasana, $pvm, $aika, $hlomaara, $puhnumero);
+            // Varauksen päivittäminen
+            $sql = "UPDATE booking SET etunimi=?, sukunimi=?, sahkoposti=?, salasana=?, pvm=?, aika=?, hlomaara=? WHERE puhnumero=?";
+            $stmt = mysqli_prepare($yhteys, $sql);
+            mysqli_stmt_bind_param($stmt, 'sssssssi', $etunimi, $sukunimi, $sahkoposti, $salasana, $pvm, $aika, $hlomaara, $puhnumero);
             } else {
-                $sql = "INSERT INTO booking (etunimi, sukunimi, sahkoposti, salasana, puhnumero, pvm, aika, hlomaara) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-                $stmt = mysqli_prepare($yhteys, $sql);
-                mysqli_stmt_bind_param($stmt, 'sssssssi', $etunimi, $sukunimi, $sahkoposti, $salasana, $puhnumero, $pvm, $aika, $hlomaara);
+            // Uusi varaus 
+            $sql = "INSERT INTO booking (etunimi, sukunimi, sahkoposti, salasana, puhnumero, pvm, aika, hlomaara) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            $stmt = mysqli_prepare($yhteys, $sql);
+            mysqli_stmt_bind_param($stmt, 'sssssssi', $etunimi, $sukunimi, $sahkoposti, $salasana, $puhnumero, $pvm, $aika, $hlomaara);
             }
             mysqli_stmt_execute($stmt);
             mysqli_stmt_close($stmt);
             echo "<p>Booking information saved successfully!</p>";
         }
 
+        // Hae kaikki varaukset tietokannasta
         $tulos = mysqli_query($yhteys, "SELECT * FROM booking");
 
         echo '<div class="booking-container">';
