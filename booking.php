@@ -80,22 +80,36 @@
         text-transform: uppercase; 
         }
     </style>
-</head>
-<body>
-    <div class="container">
-        <header class="hero">
-            <div class="navigation">
-                <a href="index.html"><img src="kuvat/logo-no-background.png" alt="Logo" class="logo"></a>
-                <nav>
-                    <ul>
-                        <li><a href="menu.html">Menu</a></li>
-                        <li><a href="drinkit.html">Drinks</a></li>
-                        <li><a href="yhteystiedot.html">Contacts</a></li>
-                        <li><a href="booking.html">Booking</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
+   <div class="container">
+
+<div class="mobile-nav">
+    <a href="index.html"><img src="kuvat/logo-no-background.png" alt="" class="active"></a>
+
+    <div id="linkit">
+        <a href="menu.html">Menu</a>
+        <a href="drinkit.html">Drinks</a>
+        <a href="yhteystiedot.html">Contacts</a>
+        <a href="booking.php">Booking</a>
+        <a href="svenska.html">På Svenska</a>
+    </div>
+
+    <a href="javascript:void(0);" class="burgeri" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+    </a>
+</div>
+<header class="hero">
+    <div class="navigation">
+        <a href="index.html"><img src="kuvat/logo-no-background.png" alt="Logo" class="logo"></a>
+        <nav>
+            <ul>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="drinkit.html">Drinks</a></li>
+                <li><a href="yhteystiedot.html">Contacts</a></li>
+                <li><a href="booking.php">Booking</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
         <h4>Pöydän Varaus</h4>
         <form action="booking.php" method="post">
