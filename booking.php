@@ -7,79 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="booking.css">
-    <style>
-        .container, form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: white;
-        }
-        form {
-            width: 300px;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-        }
-        form label {
-            margin-bottom: 10px;
-            text-align: left;
-            width: 100%;
-        }
-        form input {
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            width: 100%;
-            box-sizing: border-box;
-        }
-        form input[type="submit"] {
-            background-color: #bfa98a;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            padding: 15px;
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-        form input[type="submit"]:hover {
-            background-color: #555;
-        }
-        
-        .booking-container {
-            margin-top: 20px;
-            width: 80%;
-            background-color: #333;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-        }
-        .booking-entry {
-            background-color: #444;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-        }
-        .booking-entry p {
-            margin: 0;
-        }
-        .booking-entry a {
-            color: #bfa98a;
-            text-decoration: none;
-            margin-right: 10px;
-        }
-        .booking-entry a:hover {
-            text-decoration: underline;
-        }
-        h4 {
-            margin-bottom: 15px;
-        font-size: 1.75rem;
-        font-family: Georgia, 'Times New Roman', Times, serif;
-        font-weight: bold;
-        color: #bfa98a; 
-        border-bottom: 1px solid #bfa98a; 
-        padding-bottom: 10px;
-        text-transform: uppercase; 
-        }
-    </style>
+   
    <div class="container">
 
 <div class="mobile-nav">
@@ -180,7 +108,79 @@
         mysqli_free_result($tulos);
         mysqli_close($yhteys);
         ?>
-
+ <style>
+        .container, form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+        }
+        form {
+            width: 300px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        form label {
+            margin-bottom: 10px;
+            text-align: left;
+            width: 100%;
+        }
+        form input {
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        form input[type="submit"] {
+            background-color: #bfa98a;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 15px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        form input[type="submit"]:hover {
+            background-color: #555;
+        }
+        
+        .booking-container {
+            margin-top: 20px;
+            width: 80%;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .booking-entry {
+            background-color: #444;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .booking-entry p {
+            margin: 0;
+        }
+        .booking-entry a {
+            color: #bfa98a;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        .booking-entry a:hover {
+            text-decoration: underline;
+        }
+        h4 {
+            margin-bottom: 15px;
+        font-size: 1.75rem;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-weight: bold;
+        color: #bfa98a; 
+        border-bottom: 1px solid #bfa98a; 
+        padding-bottom: 10px;
+        text-transform: uppercase; 
+        }
+    </style>
         <footer class="footer">
             <div class="footer-container">
                 <div class="footer-section">

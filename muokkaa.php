@@ -39,7 +39,53 @@
                 </nav>
             </div>
         </header>
-    <style>
+   
+    <div class="container">
+        <?php
+
+        $muokattava = $_GET["puhnumero"] ?? "";
+
+        if (empty($muokattava)) {
+            header("Location: booking.php");
+            exit;
+        }
+
+        mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX);
+        $yhteys = mysqli_connect("db", "root", "password", "websiteProject");
+
+        if (!$yhteys) {
+            header("Location: ../html/yhteysvirhe.html");
+            exit;
+        }
+
+        $sql = "SELECT * FROM booking WHERE puhnumero = ?";
+        $stmt = mysqli_prepare($yhteys, $sql);
+        mysqli_stmt_bind_param($stmt, 's', $muokattava);
+        mysqli_stmt_execute($stmt);
+        $tulos = mysqli_stmt_get_result($stmt);
+
+        if (!$rivi = mysqli_fetch_assoc($tulos)) {
+            exit;
+        }
+
+        mysqli_close($yhteys);
+        ?>
+
+        <h2>Muokkaa Tietoja</h2>
+
+        <form action="paivita.php" method="post">
+            <label>Sukunimi: <input type="text" name="sukunimi" value="<?= htmlspecialchars($rivi['sukunimi']) ?>" maxlength="50" required></label>
+            <label>Etunimi: <input type="text" name="etunimi" value="<?= htmlspecialchars($rivi['etunimi']) ?>" maxlength="50" required></label>
+            <label>Sähköposti: <input type="email" name="sahkoposti" value="<?= htmlspecialchars($rivi['sahkoposti']) ?>" maxlength="100" required></label>
+            <label>Puhelinnumero: <input type="tel" name="puhnumero" value="<?= htmlspecialchars($rivi['puhnumero']) ?>" maxlength="15" readonly></label>
+            <label>Salasana: <input type="password" name="salasana" maxlength="50"></label>
+            <label>Päivämäärä: <input type="date" name="pvm" value="<?= htmlspecialchars($rivi['pvm']) ?>" required></label>
+            <label>Aika: <input type="time" name="aika" value="<?= htmlspecialchars($rivi['aika']) ?>" required></label>
+            <label>Henkilömäärä: <input type="number" name="hlomaara" value="<?= htmlspecialchars($rivi['hlomaara']) ?>" min="1" required></label>
+            <input type="submit" value="Tallenna">
+        </form>
+    </div>
+ <style>
         .hero {
             background-image: url("kuvat/kattaus1.jpg"); /* Update this line with the new image path */
             background-size: cover;
@@ -105,52 +151,6 @@
             background-color: #555;
         }
     </style>
-    <div class="container">
-        <?php
-
-        $muokattava = $_GET["puhnumero"] ?? "";
-
-        if (empty($muokattava)) {
-            header("Location: booking.php");
-            exit;
-        }
-
-        mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX);
-        $yhteys = mysqli_connect("db", "root", "password", "websiteProject");
-
-        if (!$yhteys) {
-            header("Location: ../html/yhteysvirhe.html");
-            exit;
-        }
-
-        $sql = "SELECT * FROM booking WHERE puhnumero = ?";
-        $stmt = mysqli_prepare($yhteys, $sql);
-        mysqli_stmt_bind_param($stmt, 's', $muokattava);
-        mysqli_stmt_execute($stmt);
-        $tulos = mysqli_stmt_get_result($stmt);
-
-        if (!$rivi = mysqli_fetch_assoc($tulos)) {
-            exit;
-        }
-
-        mysqli_close($yhteys);
-        ?>
-
-        <h2>Muokkaa Tietoja</h2>
-
-        <form action="paivita.php" method="post">
-            <label>Sukunimi: <input type="text" name="sukunimi" value="<?= htmlspecialchars($rivi['sukunimi']) ?>" maxlength="50" required></label>
-            <label>Etunimi: <input type="text" name="etunimi" value="<?= htmlspecialchars($rivi['etunimi']) ?>" maxlength="50" required></label>
-            <label>Sähköposti: <input type="email" name="sahkoposti" value="<?= htmlspecialchars($rivi['sahkoposti']) ?>" maxlength="100" required></label>
-            <label>Puhelinnumero: <input type="tel" name="puhnumero" value="<?= htmlspecialchars($rivi['puhnumero']) ?>" maxlength="15" readonly></label>
-            <label>Salasana: <input type="password" name="salasana" maxlength="50"></label>
-            <label>Päivämäärä: <input type="date" name="pvm" value="<?= htmlspecialchars($rivi['pvm']) ?>" required></label>
-            <label>Aika: <input type="time" name="aika" value="<?= htmlspecialchars($rivi['aika']) ?>" required></label>
-            <label>Henkilömäärä: <input type="number" name="hlomaara" value="<?= htmlspecialchars($rivi['hlomaara']) ?>" min="1" required></label>
-            <input type="submit" value="Tallenna">
-        </form>
-    </div>
-
 <footer class="footer">
             <div class="footer-container">
                 <div class="footer-section">
