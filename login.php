@@ -6,6 +6,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $puhnumero = trim($_POST["puhnumero"]);
     $salasana = trim($_POST["salasana"]);
 
+    // Admin credentials
+    $admin_puhnumero = "000";
+    $admin_salasana = "salasana";
+
+    if ($puhnumero === $admin_puhnumero && $salasana === $admin_salasana) {
+        header("Location: admin.php");
+        exit;
+    }
+
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
     $yhteys = mysqli_connect("db", "root", "password", "websiteProject");
 
@@ -21,6 +30,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($row = mysqli_fetch_assoc($result)) {
         if (password_verify($salasana, $row['salasana'])) {
+            
+
             header("Location: muokkaa.php?puhnumero=" . urlencode($puhnumero));
             exit;
         } else {

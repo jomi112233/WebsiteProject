@@ -18,7 +18,7 @@
         <a href="drinkit.html">Drinks</a>
         <a href="yhteystiedot.html">Contacts</a>
         <a href="booking.php">Booking</a>
-        <a href="svenska.html">På Svenska</a>
+        <a href="login.php">Login</a>
     </div>
 
     <a href="javascript:void(0);" class="burgeri" onclick="myFunction()">
@@ -34,6 +34,8 @@
                 <li><a href="drinkit.html">Drinks</a></li>
                 <li><a href="yhteystiedot.html">Contacts</a></li>
                 <li><a href="booking.php">Booking</a></li>
+
+                <li><a href="login.php" class="language">Login</a></li>
             </ul>
         </nav>
     </div>
@@ -97,12 +99,7 @@
         $tulos = mysqli_query($yhteys, "SELECT * FROM booking");
 
         echo '<div class="booking-container">';
-        while ($rivi = mysqli_fetch_object($tulos)) {
-            $formatted_date = date("d/m/Y", strtotime($rivi->pvm));
-            echo "<div class='booking-entry'><p>Varauksesi tiedot = <b>Sukunimi:</b> " . htmlspecialchars($rivi->sukunimi) . ", <b>Etunimi:</b> " . htmlspecialchars($rivi->etunimi) . ", <b>Sähköposti:</b> " . htmlspecialchars($rivi->sahkoposti) . ", <b>Puhelinnumero:</b> " . htmlspecialchars($rivi->puhnumero) . ", <b>Päivämäärä:</b> $formatted_date, <b>Aika:</b> " . htmlspecialchars($rivi->aika) . ", <b>Henkilömäärä:</b> " . htmlspecialchars($rivi->hlomaara) . "</p>" . 
-             "<a href='./poista.php?puhnumero=" . htmlspecialchars($rivi->puhnumero) . "'>Poista</a> " . 
-             "<a href='./muokkaa.php?puhnumero=" . htmlspecialchars($rivi->puhnumero) . "'>Muokkaa</a></div>";
-        }
+
         echo '</div>';
 
         mysqli_free_result($tulos);
