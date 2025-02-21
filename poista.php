@@ -1,13 +1,5 @@
 <?php
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-
-try {
-    $yhteys = mysqli_connect("db", "root", "password", "websiteProject");
-}
-catch (Exception $e) {
-    header("Location: ./html/yhteysvirhe.html");
-    exit;
-}
+require_once 'config.php';
 
 $poistettava = isset($_GET["puhnumero"]) ? $_GET["puhnumero"] : 0;
 

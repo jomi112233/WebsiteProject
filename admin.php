@@ -1,10 +1,6 @@
 <?php
     // Yhteys tietokantaan
-    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-    $yhteys = mysqli_connect("db", "root", "password", "websiteProject");
-    if (!$yhteys) {
-        die("Database Connection Failed: " . mysqli_connect_error());
-    }
+    require_once 'config.php';
 
 
 

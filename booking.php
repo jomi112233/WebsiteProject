@@ -55,13 +55,9 @@
         </form>
 
         <?php
-        // Yhteys tietokantaan, jos epäonnistuu näytetään virheilmoitus
-        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-        $yhteys = mysqli_connect("db", "root", "password", "websiteProject");
-        if (!$yhteys) {
-            die("Database Connection Failed: " . mysqli_connect_error());
-        }
-
+        
+        require_once 'config.php';
+        
         // Tarkistaa että käyttäjä on lähettänyt tiedot, hakee käyttäjän lähettämät tiedot, trim poistaa ylimääräiset välilyönnit alusta ja lopusta
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $sukunimi = trim($_POST["sukunimi"]);

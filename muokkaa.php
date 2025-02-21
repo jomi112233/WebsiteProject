@@ -50,13 +50,7 @@
             exit;
         }
 
-        mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX);
-        $yhteys = mysqli_connect("db", "root", "password", "websiteProject");
-
-        if (!$yhteys) {
-            header("Location: ../html/yhteysvirhe.html");
-            exit;
-        }
+        require_once 'config.php';
 
         $sql = "SELECT * FROM booking WHERE puhnumero = ?";
         $stmt = mysqli_prepare($yhteys, $sql);
