@@ -55,13 +55,14 @@
         </form>
 
         <?php
-        // Yhteys tietokantaan
+        // Yhteys tietokantaan, jos epäonnistuu näytetään virheilmoitus
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         $yhteys = mysqli_connect("db", "root", "password", "websiteProject");
         if (!$yhteys) {
             die("Database Connection Failed: " . mysqli_connect_error());
         }
 
+        // Tarkistaa että käyttäjä on lähettänyt tiedot, hakee käyttäjän lähettämät tiedot, trim poistaa ylimääräiset välilyönnit alusta ja lopusta
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $sukunimi = trim($_POST["sukunimi"]);
             $etunimi = trim($_POST["etunimi"]);
@@ -78,14 +79,14 @@
             mysqli_stmt_bind_param($stmt_check, 's', $puhnumero);
             mysqli_stmt_execute($stmt_check);
             $result = mysqli_stmt_get_result($stmt_check);
-
+            //jos puhelinnumero löytyy, varaus päivitetään
             if (mysqli_num_rows($result) > 0) {
             // Varauksen päivittäminen
             $sql = "UPDATE booking SET etunimi=?, sukunimi=?, sahkoposti=?, salasana=?, pvm=?, aika=?, hlomaara=? WHERE puhnumero=?";
             $stmt = mysqli_prepare($yhteys, $sql);
             mysqli_stmt_bind_param($stmt, 'sssssssi', $etunimi, $sukunimi, $sahkoposti, $salasana, $pvm, $aika, $hlomaara, $puhnumero);
             } else {
-            // Uusi varaus 
+            // lisää uuden varauksen, jos puhelinnumeroa ei ole 
             $sql = "INSERT INTO booking (etunimi, sukunimi, sahkoposti, salasana, puhnumero, pvm, aika, hlomaara) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             $stmt = mysqli_prepare($yhteys, $sql);
             mysqli_stmt_bind_param($stmt, 'sssssssi', $etunimi, $sukunimi, $sahkoposti, $salasana, $puhnumero, $pvm, $aika, $hlomaara);
