@@ -20,4 +20,5 @@ $yhteys = mysqli_connect(
     $config['database']['password'],
     $config['database']['dbname']
 ) or die("Tietokantayhteys epäonnistui: " . mysqli_connect_error());
+
 ?>

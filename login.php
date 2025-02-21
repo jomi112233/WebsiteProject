@@ -5,10 +5,11 @@ session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $puhnumero = trim($_POST["puhnumero"]);
     $salasana = trim($_POST["salasana"]);
-
+    
+    $config = parse_ini_file('.ht.asetukset.ini', true);
     // Admin credentials
-    $admin_puhnumero = "000";
-    $admin_salasana = "salasana";
+    $admin_puhnumero = $config['admin']['puhnumero'];
+    $admin_salasana = $config['admin']['salasana'];
 
     if ($puhnumero === $admin_puhnumero && $salasana === $admin_salasana) {
         header("Location: admin.php");
