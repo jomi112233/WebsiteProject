@@ -1,4 +1,63 @@
-<?php
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="booking.css">
+   
+   <div class="container">
+
+<div class="mobile-nav">
+    <a href="index.html"><img src="kuvat/logo-no-background.png" alt="" class="active"></a>
+
+    <div id="linkit">
+        <a href="menu.html">Menu</a>
+        <a href="drinkit.html">Drinks</a>
+        <a href="yhteystiedot.html">Contacts</a>
+        <a href="booking.php">Booking</a>
+        <a href="login.php">Login</a>
+    </div>
+
+    <a href="javascript:void(0);" class="burgeri" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+    </a>
+</div>
+<header class="hero">
+    <div class="navigation">
+        <a href="index.html"><img src="kuvat/logo-no-background.png" alt="Logo" class="logo"></a>
+        <nav>
+            <ul>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="drinkit.html">Drinks</a></li>
+                <li><a href="yhteystiedot.html">Contacts</a></li>
+                <li><a href="booking.php">Booking</a></li>
+
+                <li><a href="login.php" class="language">Login</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+        <h4>Pöydän Varaus</h4>
+        <form action="booking.php" method="post">
+            <label>Sukunimi: <input type="text" name="sukunimi" maxlength="50" required></label>
+            <label>Etunimi: <input type="text" name="etunimi" maxlength="50" required></label>
+            <label>Sähköposti: <input type="email" name="sahkoposti" maxlength="100" required></label>
+            <label>Puhelinnumero: <input type="tel" name="puhnumero" maxlength="15" required></label>
+            <label>Salasana: <input type="password" name="salasana" maxlength="50" required></label>
+            <label>Valitse päivämäärä: <input type="date" name="pvm" required></label>
+            <label>Valitse aika: <input type="time" name="aika" required></label>
+            <label>Valitse henkilömäärä: <input type="number" name="hlomaara" min="1" required></label>
+            <input type="submit" name="ok" value="Varaa pöytä">
+        </form>
+
+
+
+        <?php
         
         require_once 'config.php';
         
@@ -39,9 +98,9 @@
         // Hae kaikki varaukset tietokannasta
         $tulos = mysqli_query($yhteys, "SELECT * FROM booking");
 
-        echo '<div class="booking-container">';
+        //echo '<div class="booking-container">';
 
-        echo '</div>';
+        //echo '</div>';
 
         mysqli_free_result($tulos);
         mysqli_close($yhteys);
@@ -119,65 +178,6 @@
         text-transform: uppercase; 
         }
     </style>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="booking.css">
-   
-   <div class="container">
-
-<div class="mobile-nav">
-    <a href="index.html"><img src="kuvat/logo-no-background.png" alt="" class="active"></a>
-
-    <div id="linkit">
-        <a href="menu.html">Menu</a>
-        <a href="drinkit.html">Drinks</a>
-        <a href="yhteystiedot.html">Contacts</a>
-        <a href="booking.php">Booking</a>
-        <a href="login.php">Login</a>
-    </div>
-
-    <a href="javascript:void(0);" class="burgeri" onclick="myFunction()">
-        <i class="fa fa-bars"></i>
-    </a>
-</div>
-<header class="hero">
-    <div class="navigation">
-        <a href="index.html"><img src="kuvat/logo-no-background.png" alt="Logo" class="logo"></a>
-        <nav>
-            <ul>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="drinkit.html">Drinks</a></li>
-                <li><a href="yhteystiedot.html">Contacts</a></li>
-                <li><a href="booking.php">Booking</a></li>
-
-                <li><a href="login.php" class="language">Login</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
-
-        <h4>Pöydän Varaus</h4>
-        <form action="booking.php" method="post">
-            <label>Sukunimi: <input type="text" name="sukunimi" maxlength="50" required></label>
-            <label>Etunimi: <input type="text" name="etunimi" maxlength="50" required></label>
-            <label>Sähköposti: <input type="email" name="sahkoposti" maxlength="100" required></label>
-            <label>Puhelinnumero: <input type="tel" name="puhnumero" maxlength="15" required></label>
-            <label>Salasana: <input type="password" name="salasana" maxlength="50" required></label>
-            <label>Valitse päivämäärä: <input type="date" name="pvm" required></label>
-            <label>Valitse aika: <input type="time" name="aika" required></label>
-            <label>Valitse henkilömäärä: <input type="number" name="hlomaara" min="1" required></label>
-            <input type="submit" name="ok" value="Varaa pöytä">
-        </form>
-
-
-
-
 
 
         <footer class="footer">
