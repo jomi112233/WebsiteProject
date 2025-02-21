@@ -82,6 +82,19 @@
             background-color: #202124;
             font-family: Arial, sans-serif;
         }
+        .hero {
+        background: url('kuvat/kattaus1.jpg') no-repeat center center;
+        background-size: cover; 
+        height: 60vh; 
+        display: flex; 
+        flex-direction: column;
+        justify-content:end;
+        align-items: center;
+        color: white; 
+        text-align: center;
+        position: relative;
+
+}
         .container {
             display: flex;
             flex-direction: column;
