@@ -72,7 +72,7 @@
             
             <div class="button-container">
                 <input type="submit" value="Tallenna">
-                <input type="submit" value="Poista" a href="poista.php?puhnumero=<?= htmlspecialchars($rivi['puhnumero']) ?>" class="delete-button"></input>
+                <button type="button" class="delete-button" onclick="window.location.href='poista.php?puhnumero=<?= htmlspecialchars($rivi['puhnumero']) ?>'">Poista</button>
             </div>
         </form>
     </div>
