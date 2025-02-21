@@ -60,14 +60,14 @@
         
         // Tarkistaa että käyttäjä on lähettänyt tiedot, hakee käyttäjän lähettämät tiedot, trim poistaa ylimääräiset välilyönnit alusta ja lopusta
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $sukunimi = trim($_POST["sukunimi"]);
-            $etunimi = trim($_POST["etunimi"]);
-            $sahkoposti = trim($_POST["sahkoposti"]);
-            $puhnumero = trim($_POST["puhnumero"]);
-            $salasana = password_hash(trim($_POST["salasana"]), PASSWORD_DEFAULT);
-            $pvm = $_POST["pvm"];
-            $aika = $_POST["aika"];
-            $hlomaara = $_POST["hlomaara"];
+            $sukunimi = isset($_POST["sukunimi"]) ? trim($_POST["sukunimi"]) : '';
+            $etunimi = isset($_POST["etunimi"]) ? trim($_POST["etunimi"]) : '';
+            $sahkoposti = isset($_POST["sahkoposti"]) ? trim($_POST["sahkoposti"]) : '';
+            $puhnumero = isset($_POST["puhnumero"]) ? trim($_POST["puhnumero"]) : '';
+            $salasana = isset($_POST["salasana"]) ? password_hash(trim($_POST["salasana"]), PASSWORD_DEFAULT) : '';
+            $pvm = isset($_POST["pvm"]) ? $_POST["pvm"] : '';
+            $aika = isset($_POST["aika"]) ? $_POST["aika"] : '';
+            $hlomaara = isset($_POST["hlomaara"]) ? $_POST["hlomaara"] : '';
 
             // Tarkista, onko puhelinnumero jo olemassa (käyttää primary keynä)
             $sql_check = "SELECT * FROM booking WHERE puhnumero = ?";
