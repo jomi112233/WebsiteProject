@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $puhnumero = trim($_POST["puhnumero"]);
     $salasana = trim($_POST["salasana"]);
 
-    // Admin credentials
+    //admin tunnukset ja niiden tarkistus
     $admin_puhnumero = "000";
     $admin_salasana = "salasana";
 
@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: admin.php");
         exit;
     }
-
+    //yhdistys tietokantaan
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
     $yhteys = mysqli_connect("db", "root", "password", "websiteProject");
 
@@ -28,6 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
 
+    //varmistetaan että tunnukset oikeat
     if ($row = mysqli_fetch_assoc($result)) {
         if (password_verify($salasana, $row['salasana'])) {
             
@@ -56,6 +57,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="booking.css">
+
+
+
+
     <style>
         body {
             background-color: #f4f4f4;

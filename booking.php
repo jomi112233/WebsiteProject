@@ -57,11 +57,11 @@
         <?php
         // Yhteys tietokantaan
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-        $yhteys = mysqli_connect("db", "root", "password", "websiteProject");
+        $yhteys = mysqli_connect("db", "root", "VT905c7p", "trtkp24_6");
         if (!$yhteys) {
             die("Database Connection Failed: " . mysqli_connect_error());
         }
-
+        
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $sukunimi = trim($_POST["sukunimi"]);
             $etunimi = trim($_POST["etunimi"]);
