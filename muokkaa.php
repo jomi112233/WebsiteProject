@@ -10,10 +10,8 @@
 </head>
 <body>
     <div class="container">
-
         <div class="mobile-nav">
             <a href="index.html"><img src="kuvat/logo-no-background.png" alt="" class="active"></a>
-
             <div id="linkit">
                 <a href="menu.html">Menu</a>
                 <a href="drinkit.html">Drinks</a>
@@ -21,7 +19,6 @@
                 <a href="booking.php">Booking</a>
                 <a href="svenska.html">På Svenska</a>
             </div>
-
             <a href="javascript:void(0);" class="burgeri" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
             </a>
@@ -39,65 +36,47 @@
                 </nav>
             </div>
         </header>
-   
+    
     <div class="container">
         <?php
-
+        require_once 'config.php';
         $muokattava = $_GET["puhnumero"] ?? "";
-
         if (empty($muokattava)) {
             header("Location: booking.php");
             exit;
         }
-
-        require_once 'config.php';
-
         $sql = "SELECT * FROM booking WHERE puhnumero = ?";
         $stmt = mysqli_prepare($yhteys, $sql);
         mysqli_stmt_bind_param($stmt, 's', $muokattava);
         mysqli_stmt_execute($stmt);
         $tulos = mysqli_stmt_get_result($stmt);
-
         if (!$rivi = mysqli_fetch_assoc($tulos)) {
+            mysqli_close($yhteys);
+            header("Location: booking.php");
             exit;
         }
-
         mysqli_close($yhteys);
         ?>
 
         <h2>Muokkaa Tietoja</h2>
 
         <form action="paivita.php" method="post">
-            <label>Sukunimi: <input type="text" name="sukunimi" value="<?= htmlspecialchars($rivi['sukunimi']) ?>" maxlength="50" required></label>
-            <label>Etunimi: <input type="text" name="etunimi" value="<?= htmlspecialchars($rivi['etunimi']) ?>" maxlength="50" required></label>
-            <label>Sähköposti: <input type="email" name="sahkoposti" value="<?= htmlspecialchars($rivi['sahkoposti']) ?>" maxlength="100" required></label>
-            <label>Puhelinnumero: <input type="tel" name="puhnumero" value="<?= htmlspecialchars($rivi['puhnumero']) ?>" maxlength="15" readonly></label>
-            <label>Salasana: <input type="password" name="salasana" maxlength="50"></label>
+            <label>Sukunimi: <input type="text" name="sukunimi" value="<?= htmlspecialchars($rivi['sukunimi']) ?>" required></label>
+            <label>Etunimi: <input type="text" name="etunimi" value="<?= htmlspecialchars($rivi['etunimi']) ?>" required></label>
+            <label>Sähköposti: <input type="email" name="sahkoposti" value="<?= htmlspecialchars($rivi['sahkoposti']) ?>" required></label>
+            <label>Puhelinnumero: <input type="tel" name="puhnumero" value="<?= htmlspecialchars($rivi['puhnumero']) ?>" readonly></label>
+            <label>Salasana: <input type="password" name="salasana"></label>
             <label>Päivämäärä: <input type="date" name="pvm" value="<?= htmlspecialchars($rivi['pvm']) ?>" required></label>
             <label>Aika: <input type="time" name="aika" value="<?= htmlspecialchars($rivi['aika']) ?>" required></label>
             <label>Henkilömäärä: <input type="number" name="hlomaara" value="<?= htmlspecialchars($rivi['hlomaara']) ?>" min="1" required></label>
-            <input type="submit" value="Tallenna">
+            
+            <div class="button-container">
+                <input type="submit" value="Tallenna">
+                <input type="submit" value="Poista" a href="poista.php?puhnumero=<?= htmlspecialchars($rivi['puhnumero']) ?>" class="delete-button"></input>
+            </div>
         </form>
-
-
     </div>
- <style>
-        .hero {
-            background-image: url("kuvat/kattaus1.jpg"); /* Update this line with the new image path */
-            background-size: cover;
-            background-position: center;
-            height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-        .hero h1 {
-            font-size: 3em;
-            margin: 0;
-        }
-    </style>
+
     <style>
         body {
             background-color: #202124;
@@ -126,6 +105,8 @@
             margin-bottom: 10px;
             width: 100%;
             text-align: left;
+            font-family: Arial, sans-serif;
+            text-decoration: none;
         }
         form input {
             padding: 10px;
@@ -146,8 +127,30 @@
         form input[type="submit"]:hover {
             background-color: #555;
         }
+        .button-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .delete-button {
+            background-color: #bfa98a;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            margin-top: 10px;
+            text-decoration: ;  
+            
+        }
+        .delete-button:hover {
+            background-color: #555;
+            text-decoration: none;
+        }
     </style>
-<footer class="footer">
+
+    <script src="burgeri.js"></script>
+    
+    <footer class="footer">
             <div class="footer-container">
                 <div class="footer-section">
                     <h3>About Us</h3>
@@ -170,6 +173,9 @@
             </div>
         </footer>
     </div>
-<script src="burgeri.js"></script>
+    <script src="burgeri.js"></script>
+</body>
+</html>
+
 </body>
 </html>
