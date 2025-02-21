@@ -78,6 +78,8 @@
             <label>Henkilömäärä: <input type="number" name="hlomaara" value="<?= htmlspecialchars($rivi['hlomaara']) ?>" min="1" required></label>
             <input type="submit" value="Tallenna">
         </form>
+
+
     </div>
  <style>
         .hero {
