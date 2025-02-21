@@ -17,7 +17,7 @@
                 <a href="drinkit.html">Drinks</a>
                 <a href="yhteystiedot.html">Contacts</a>
                 <a href="booking.php">Booking</a>
-                <a href="svenska.html">På Svenska</a>
+                <a href="login.php">Login</a>
             </div>
             <a href="javascript:void(0);" class="burgeri" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
