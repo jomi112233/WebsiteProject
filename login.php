@@ -5,22 +5,18 @@ session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $puhnumero = trim($_POST["puhnumero"]);
     $salasana = trim($_POST["salasana"]);
-
-    //admin tunnukset ja niiden tarkistus
-    $admin_puhnumero = "000";
-    $admin_salasana = "salasana";
+    
+    $config = parse_ini_file('.ht.asetukset.ini', true);
+    // Admin credentials
+    $admin_puhnumero = $config['admin']['puhnumero'];
+    $admin_salasana = $config['admin']['salasana'];
 
     if ($puhnumero === $admin_puhnumero && $salasana === $admin_salasana) {
         header("Location: admin.php");
         exit;
     }
-    //yhdistys tietokantaan
-    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-    $yhteys = mysqli_connect("db", "root", "password", "websiteProject");
 
-    if (!$yhteys) {
-        die("Database Connection Failed: " . mysqli_connect_error());
-    }
+    require_once 'config.php';
 
     $sql = "SELECT * FROM booking WHERE puhnumero = ?";
     $stmt = mysqli_prepare($yhteys, $sql);

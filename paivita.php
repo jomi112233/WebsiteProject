@@ -16,8 +16,7 @@ $aika = $_POST['aika'];
 $hlomaara = $_POST['hlomaara'];
 
 // Tietokantaan yhdistys
-mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX);
-$yhteys = mysqli_connect("db", "root", "password", "websiteProject");
+require_once 'config.php';
 
 if (!$yhteys) {
     header("Location: ../html/yhteysvirhe.html");
