@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a scchool assigment to build a website that has a database
+This is a school assigment to build a website that has a database
 
 - make a website where users can login
 - database using docker containers and mysql
