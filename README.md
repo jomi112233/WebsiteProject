@@ -1,7 +1,5 @@
 # Website Project
 
-https://jomi112233.github.io/WebsiteProject/index.html
-
 ## Overview
 
 This is a scchool assigment to build a website that has a database
@@ -15,3 +13,8 @@ Our focus is to make a website where users can login and book a table under thei
 @Mico Jokitalo
 @Milla Väyrynen
 @Samuel Rooke
+
+
+## issues
+currently the login page does not work as the database is not up anymore and going to the login page will download the php file
+https://jomi112233.github.io/WebsiteProject/index.html
